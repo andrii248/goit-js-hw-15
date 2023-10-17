@@ -6,7 +6,9 @@ const boxesDiv = document.querySelector("div#boxes");
 createBtn.addEventListener("click", function () {
   createBoxes(Number(input.value));
 });
-destroyBtn.addEventListener("click", destroyBoxes);
+destroyBtn.addEventListener("click", function () {
+  destroyBoxes();
+});
 
 function createBoxes(amount) {
   let markup = [];

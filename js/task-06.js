@@ -4,13 +4,15 @@ input.addEventListener("blur", handleBlur);
 input.addEventListener("focus", handleFocus);
 
 function handleBlur(event) {
-  const requiredLength = event.currentTarget.dataset.length;
+  const requiredLength = Number(event.currentTarget.dataset.length);
   const valueLength = event.currentTarget.value.length;
 
-  if (valueLength < requiredLength) {
-    event.currentTarget.classList.add("invalid");
-  } else {
+  event.currentTarget.classList.add("invalid");
+  event.currentTarget.classList.remove("valid");
+
+  if (valueLength === requiredLength) {
     event.currentTarget.classList.add("valid");
+    event.currentTarget.classList.remove("invalid");
   }
 }
 
